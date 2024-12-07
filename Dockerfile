@@ -13,4 +13,8 @@ RUN /opt/venv/bin/pip install --upgrade pip && \
 
 ENV PATH="/opt/venv/bin:$PATH"
 
+RUN mkdir -p /home/spacelift/.ssh && \
+    chown -R spacelift:spacelift /home/spacelift/.ssh && \
+    chmod 700 /home/spacelift/.ssh
+
 USER spacelift
