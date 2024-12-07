@@ -17,4 +17,8 @@ RUN mkdir -p /home/spacelift/.ssh && \
     chown -R spacelift:spacelift /home/spacelift/.ssh && \
     chmod 700 /home/spacelift/.ssh
 
+RUN echo -e "Host *\n\tStrictHostKeyChecking no\n\tUserKnownHostsFile=/dev/null" > /home/spacelift/.ssh/config && \ 
+    chown spacelift:spacelift /home/spacelift/.ssh/config && \ 
+    chmod 600 /home/spacelift/.ssh/config
+
 USER spacelift
